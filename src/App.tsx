@@ -14,12 +14,12 @@ function App() {
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="max-w-7xl mx-auto">        
-        <div className="mb-8 flex justify-center items-center gap-4">
+        <div className="flex items-center gap-4 p-6">
           <div className="relative inline-block">
             <select
               value={selectedSet}
               onChange={(e) => setSelectedSet(e.target.value)}
-              className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+              className="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent cursor-pointer"
             >
               {Object.entries(translations).map(([key, value]) => (
                 <option key={key} value={key}>
@@ -33,7 +33,7 @@ function App() {
 
         <button
             onClick={() => setIsInline(!isInline)}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
           >
             {isInline ? (
               <>
