@@ -1,13 +1,9 @@
+import sentencize from "@stdlib/nlp/sentencize";
+
 export const pangrams = {
   name: "Pangrams",
-  original: [
-    "The quick brown fox jumps over the lazy dog.",
-    "Pack my box with five dozen liquor jugs.",
-    "How vexingly quick daft zebras jump!"
-  ],
-  translated: [
-    "Le rapide renard brun saute par-dessus le chien paresseux.",
-    "Remplissez ma boîte avec cinq douzaines de cruches d'alcool.",
-    "Comme les zèbres vifs et fous sautent de manière contrariante !"
-  ]
+  original:
+    sentencize("Zwinny brązowy lis przeskakuje nad leniwym psem. Zapakuj mi pudło pięcioma tuzinami dzbanów na alkohol. Jak irytująco szybko głupie zebry skaczą!"),
+  translated: 
+    sentencize("The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump!")
 };
