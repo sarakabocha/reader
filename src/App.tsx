@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white p-8">
-      <div className="max-w-7xl mx-auto">        
+      <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-4 p-6">
           <div className="relative inline-block">
             <select
@@ -29,9 +29,9 @@ function App() {
             </select>
             <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={20} />
           </div>
-    
 
-        <button
+
+          <button
             onClick={() => setIsInline(!isInline)}
             className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
           >
@@ -48,12 +48,20 @@ function App() {
             )}
           </button>
         </div>
+        <div>
+
+          <h2 className="font-serif text-lg m-6">
+            {currentSet.author && currentSet.author}
+            {currentSet.year && ` (${currentSet.year})`}
+          </h2>
+        </div>
 
         <div className="grid grid-cols-2 gap-8">
           {/* Original Text Column */}
           <TranslationPane
-            title="Original"
-            sentences={currentSet.original}
+            type="Original"
+            title={currentSet.title?.original}
+            sentences={currentSet.contents.original}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
             isInline={isInline}
@@ -61,8 +69,9 @@ function App() {
 
           {/* Translated Text Column */}
           <TranslationPane
-            title="Translated"
-            sentences={currentSet.translated}
+            type="Translated"
+            title={currentSet.title?.translated}
+            sentences={currentSet.contents.translated}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
             isInline={isInline}
