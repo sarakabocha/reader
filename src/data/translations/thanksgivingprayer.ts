@@ -32,7 +32,7 @@ export const thanksgivingPrayer = {
     original: ["Modlitwa dziękczynna z wymówką"],
     translated: ["Thanksgiving Prayer with an Excuse"]
   },
-  year: 1957,
+  date: "1957",
   author: "Andrzej Bursa",
   contents: {
     original: processText(original, { type: 'poetry' }),

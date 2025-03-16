@@ -7,8 +7,8 @@ import { AlignJustify } from 'lucide-react';
 function App() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const [selectedSet, setSelectedSet] = useState<string>('pangrams');
-  const [isInline, setIsInline] = useState(true);
+  const [selectedSet, setSelectedSet] = useState<string>('onion');
+  const [isInline, setIsInline] = useState(false);
   const currentSet = translations[selectedSet];
 
   return (
@@ -52,7 +52,7 @@ function App() {
 
           <h2 className="font-serif text-xl m-6 text-gray-500">
             {currentSet.author && currentSet.author}
-            {currentSet.year && ` — ${currentSet.year}`}
+            {currentSet.date && ` — ${currentSet.date}`}
           </h2>
         </div>
 

@@ -78,7 +78,7 @@ export const onion = {
     original: ["Cebula"],
     translated: ["Onion"]
   },
-  year: 1976,
+  date: "1976",
   author: "Wisława Szymborska",
   contents: {
     original: processText(original, { type: 'poetry' }),
