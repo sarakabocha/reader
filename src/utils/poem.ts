@@ -1,13 +1,13 @@
-type translated = {
-    original: string[];
-    translated: string[];
-};
+// type translated = {
+//     original: string[];
+//     translated: string[];
+// };
 
-type Poem = {
-    title: translated
-    author: string;
-    contents: translated;
-}
+// type Poem = {
+//     title: translated
+//     author: string;
+//     contents: translated;
+// }
 
 // const poem1: Poem = {
 //     title: {

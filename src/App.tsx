@@ -50,9 +50,9 @@ function App() {
         </div>
         <div>
 
-          <h2 className="font-serif text-lg m-6">
+          <h2 className="font-serif text-xl m-6 text-gray-500">
             {currentSet.author && currentSet.author}
-            {currentSet.year && ` (${currentSet.year})`}
+            {currentSet.year && ` — ${currentSet.year}`}
           </h2>
         </div>
 
@@ -60,7 +60,7 @@ function App() {
           {/* Original Text Column */}
           <TranslationPane
             type="Original"
-            title={currentSet.title?.original}
+            title={currentSet.title?.original[0] ?? ''}
             sentences={currentSet.contents.original}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
@@ -70,7 +70,7 @@ function App() {
           {/* Translated Text Column */}
           <TranslationPane
             type="Translated"
-            title={currentSet.title?.translated}
+            title={currentSet.title?.translated[0] ?? ''}
             sentences={currentSet.contents.translated}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}

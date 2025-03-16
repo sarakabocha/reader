@@ -73,7 +73,7 @@ Not for us such idiotic
 onionoid perfections.`;
 
 export const onion = {
-  name: "Cebula",
+  name: "Onion",
   title: {
     original: ["Cebula"],
     translated: ["Onion"]

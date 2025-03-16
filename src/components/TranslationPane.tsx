@@ -20,16 +20,17 @@ export function TranslationPane({ type, title, sentences, hoveredIndex, onHover,
             {sentence.trim() === '\n' ? (
               <div className="h-6" />
             ) : (
-              <span
-                className={`rounded ${isInline ? 'inline' : 'block whitespace-pre-line'} ${hoveredIndex === index ? 'bg-yellow-100' : 'hover:bg-gray-50'
-                  } `}
-                onMouseEnter={() => onHover(index)}
-                onMouseLeave={() => onHover(null)}
-              >
-                {sentence}
-              </span>
+              <div className={`${isInline ? "inline" : "block"}`} style={{width: !isInline ? "100%" : undefined}}>
+                <span
+                  className={`rounded ${hoveredIndex === index ? 'bg-yellow-100' : 'hover:bg-gray-50'}`}
+                  onMouseEnter={() => onHover(index)}
+                  onMouseLeave={() => onHover(null)}
+                >
+                  {sentence}
+                </span>
+              </div>
             )}
-            {isInline && ' '}
+            {isInline ? ' ' : '\n'}
           </React.Fragment>
         ))}
       </div>
