@@ -28,6 +28,15 @@ export function TranslationPane({
     }
   };
 
+  const getWritingType = (type: string) => {
+    switch (type) {
+      case "poetry":
+        return "block";
+      case "essay":
+        return "inline";
+    }
+  };
+
   return (
     <div className="bg-white p-6">
       <h2 className="text-md mb-4 text-gray-400">{type}</h2>
@@ -38,7 +47,7 @@ export function TranslationPane({
             {sentence.trim() === "\n" ? (
               <div className="h-6" />
             ) : (
-              <div className={`whitespace-pre-wrap `}>
+              <div className={`whitespace-pre-wrap ${getWritingType(type)}`}>
                 <span
                   className={`rounded py-1 ${
                     hoveredIndex === index ? "bg-yellow-100" : "hover:bg-gray-50"
