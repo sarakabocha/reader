@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { translations } from './data/translations';
-import { TranslationPane } from './components/TranslationPane';
-import { ChevronDown, GripHorizontal } from 'lucide-react';
-import { AlignJustify } from 'lucide-react';
+import React, { useState } from "react";
+import { translations } from "./data/translations";
+import { TranslationPane } from "./components/TranslationPane";
+import { ChevronDown } from "lucide-react";
 
 function App() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const [selectedSet, setSelectedSet] = useState<string>('onion');
-  const [isInline, setIsInline] = useState(false);
+  const [selectedSet, setSelectedSet] = useState<string>("onion");
+
   const currentSet = translations[selectedSet];
 
   return (
@@ -27,29 +26,13 @@ function App() {
                 </option>
               ))}
             </select>
-            <ChevronDown className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" size={20} />
+            <ChevronDown
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none"
+              size={20}
+            />
           </div>
-
-
-          <button
-            onClick={() => setIsInline(!isInline)}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors"
-          >
-            {isInline ? (
-              <>
-                <GripHorizontal size={20} />
-                <span>Inline</span>
-              </>
-            ) : (
-              <>
-                <AlignJustify size={20} />
-                <span>Line Breaks</span>
-              </>
-            )}
-          </button>
         </div>
         <div>
-
           <h2 className="font-serif text-xl m-6 text-gray-500">
             {currentSet.author && currentSet.author}
             {currentSet.date && ` — ${currentSet.date}`}
@@ -60,21 +43,19 @@ function App() {
           {/* Original Text Column */}
           <TranslationPane
             type="Original"
-            title={currentSet.title?.original[0] ?? ''}
+            title={currentSet.title?.original[0] ?? ""}
             sentences={currentSet.contents.original}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
-            isInline={isInline}
           />
 
           {/* Translated Text Column */}
           <TranslationPane
             type="Translated"
-            title={currentSet.title?.translated[0] ?? ''}
+            title={currentSet.title?.translated[0] ?? ""}
             sentences={currentSet.contents.translated}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
-            isInline={isInline}
           />
         </div>
       </div>

@@ -1,8 +1,8 @@
-import { onion } from './onion';
-import { thanksgivingPrayer } from './thanksgivingprayer';
-import {snow} from './snow';
-import {jhk20070930} from './20070930';
-import { cat } from './catinanemptyapt';
+import { onion } from "./onion";
+import { thanksgivingPrayer } from "./thanksgivingprayer";
+import { snow } from "./snow";
+import { jhk20070930 } from "./20070930";
+import { cat } from "./catinanemptyapt";
 
 type translated = {
   original: string[];
@@ -15,7 +15,7 @@ export type TranslationSet = {
   date?: string;
   author?: string;
   contents: translated;
-
+  type: string;
 };
 
 export type TranslationSets = {
@@ -27,5 +27,5 @@ export const translations: TranslationSets = {
   onion,
   snow,
   thanksgivingPrayer,
-  jhk20070930
+  jhk20070930,
 };

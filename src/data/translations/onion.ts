@@ -1,6 +1,5 @@
-import { processText } from '../../utils/textProcessor';
-const original =
-  `Co innego cebula.
+import { processText } from "../../utils/textProcessor";
+const original = `Co innego cebula.
 Ona nie ma wnętrzności.
 Jest sobą na wskroś cebula
 do stopnia cebuliczności.
@@ -76,12 +75,12 @@ export const onion = {
   name: "Onion",
   title: {
     original: ["Cebula"],
-    translated: ["Onion"]
+    translated: ["Onion"],
   },
   date: "1976",
   author: "Wisława Szymborska",
   contents: {
-    original: processText(original, { type: 'poetry' }),
-    translated: processText(translated, { type: 'poetry' })
-  }
+    original: processText(original, { type: "poetry" }),
+    translated: processText(translated, { type: "poetry" }),
+  },
 };

@@ -1,6 +1,5 @@
-import { processText } from '../../utils/textProcessor';
-const original =
-`Umrzeć - tego nie robi się kotu.
+import { processText } from "../../utils/textProcessor";
+const original = `Umrzeć - tego nie robi się kotu.
 Bo co ma począć kot
 w pustym mieszkaniu.
 Wdrapywać się na ściany.
@@ -42,8 +41,7 @@ pomalutku,
 na bardzo obrażonych łapach.
 I żadnych skoków pisków na początek.`;
 
-const translated =
-`Die—you can’t do that to a cat.
+const translated = `Die—you can’t do that to a cat.
 Since what can a cat do
 in an empty apartment?
 Climb the walls?
@@ -89,12 +87,12 @@ export const cat = {
   name: "Cat in an Empty Apartment",
   title: {
     original: ["Kot w pustym mieszkaniu"],
-    translated: ["Cat in an Empty Apartment"]
+    translated: ["Cat in an Empty Apartment"],
   },
   date: "1991",
   author: "Wisława Szymborska",
   contents: {
-    original: processText(original, { type: 'poetry' }),
-    translated: processText(translated, { type: 'poetry' })
-  }
+    original: processText(original, { type: "poetry" }),
+    translated: processText(translated, { type: "poetry" }),
+  },
 };
