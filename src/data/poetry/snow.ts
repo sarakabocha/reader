@@ -1,4 +1,5 @@
-import { processText } from "../../utils/textProcessor";
+import { Work } from "../collection";
+
 const original = `지난 밤에
 눈이 소오복이 왔네
 
@@ -21,15 +22,12 @@ that keeps us from the cold.
 That’s why
 it falls only in the chill of the winter.`;
 
-export const snow = {
-  name: "Snow",
-  title: {
-    original: ["눈"],
-    translated: ["Snow"],
-  },
+export default {
   author: "윤동주 / Yun Dong-Ju",
-  contents: {
-    original: processText(original, { type: "poetry" }),
-    translated: processText(translated, { type: "poetry" }),
+  date: "1941",
+  type: "poetry",
+  translations: {
+    original: { language: "ko", title: "눈", content: original },
+    translated: { language: "en", title: "Snow", content: translated },
   },
-};
+} as Work;

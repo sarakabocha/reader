@@ -9,5 +9,9 @@ export function processText(text: string, options: TextProcessorOptions): string
     return text.split("\n").map((line) => (line.trim() === "" ? "\n" : line + "\n"));
   }
 
+  if (options.type === "prose") {
+    return sentencize(text);
+  }
+
   return sentencize(text);
 }

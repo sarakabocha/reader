@@ -1,4 +1,4 @@
-import { processText } from "../../utils/textProcessor";
+import { Work } from "../collection";
 
 const original = `Nie uczyniłeś mnie ślepym
 Dzięki Ci za to Panie
@@ -35,16 +35,20 @@ Thank You for that, Lord
 But why did You make me Polish?
 `;
 
-export const thanksgivingPrayer = {
-  name: "Thanksgiving Prayer with an Excuse",
-  title: {
-    original: ["Modlitwa dziękczynna z wymówką"],
-    translated: ["Thanksgiving Prayer with an Excuse"],
-  },
-  date: "1957",
+export default {
   author: "Andrzej Bursa",
-  contents: {
-    original: processText(original, { type: "poetry" }),
-    translated: processText(translated, { type: "poetry" }),
+  date: "1957",
+  type: "poetry",
+  translations: {
+    original: {
+      language: "pl",
+      title: "Modlitwa dziękczynna z wymówką",
+      content: original,
+    },
+    translated: {
+      language: "en",
+      title: "Thanksgiving Prayer with an Excuse",
+      content: translated,
+    },
   },
-};
+} as Work;

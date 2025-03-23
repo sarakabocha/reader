@@ -1,4 +1,5 @@
-import { processText } from "../../utils/textProcessor";
+import { Work } from "../collection";
+
 const original = `오늘은 마태, 마가, 누가 복음에 모두 기록된, 베드로의 입으로 이루어진 최초의 그리스도에 대한 신앙고백 "주는 그리스도시요, 살아 계신 하나님의 아들입니다" (마태 16:16) 에 대하여 말씀드리면서, 그 속에 담긴 교회의 의미에 대하여 되새겨 보겠습니다. 제자들이 예수님에 대한 믿음이 절정에 이르는 순간이 바로 이 고백입니다.
 
 그런데 이 말은 가이사랴 빌립보 지방에서 이루어졌습니다. 이 지명의 이름은 로마 황제 가이사(시이저)의 이름을 따서 명명된 도시라는 뜻입니다. 빌립비 지방을 로마식으로 만들고, 거기에 황제를 숭배하는 계단을 만들었던 곳이 가이사랴 빌립보였습니다. 당시에 대개 지중해 연안의 도시들은 그렇게 로마식으로 개조되었고, 철저한 이방 도시화되었습니다. 이곳은 갈릴리에서 북쪽으로 약 25마일 떨어진 곳이었습니다.
@@ -27,16 +28,20 @@ We have often heard that the church is a gathering of believers. It is not a bui
 
 The Lord said He would build His church upon the confession of Christ. That is why the church exists. And the church established in this way receives the authority to overcome the power of death and to "bind and loose" on earth. This has various meanings, but one of them is the "authority to forgive sins." Through the right confession, the church is a place where sinners are recognized as righteous and given a new life. That is what it must be.`;
 
-export const jhk20070930 = {
-  name: "What is the Church?",
-  title: {
-    original: ["교 회란 무 엇인가?"],
-    translated: ["What is the Church?"],
-  },
-  date: "2007.09.30",
+export default {
   author: "김종호 / Kim Jong-Ho",
-  contents: {
-    original: processText(original, { type: "prose" }),
-    translated: processText(translated, { type: "prose" }),
+  date: "2007.09.30",
+  type: "prose",
+  translations: {
+    original: {
+      language: "ko",
+      title: "교회란 무엇인가?",
+      content: original,
+    },
+    translated: {
+      language: "en",
+      title: "What is the Church?",
+      content: translated,
+    },
   },
-};
+} as Work;

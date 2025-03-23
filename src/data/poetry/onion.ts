@@ -1,4 +1,5 @@
-import { processText } from "../../utils/textProcessor";
+import { Work } from "../collection";
+
 const original = `Co innego cebula.
 Ona nie ma wnętrzności.
 Jest sobą na wskroś cebula
@@ -30,7 +31,7 @@ Cebula, to ja rozumiem:
 najnadobniejszy brzuch świata.
 Sam się aureolami
 na własną chwałę oplata.
-W nas­ tłuszcze, nerwy, żyły,
+W nas tłuszcze, nerwy, żyły,
 śluzy i sekretności.
 I jest nam odmówiony
 idiotyzm doskonałaości.`;
@@ -71,16 +72,20 @@ secretions’ secret sections.
 Not for us such idiotic
 onionoid perfections.`;
 
-export const onion = {
-  name: "Onion",
-  title: {
-    original: ["Cebula"],
-    translated: ["Onion"],
-  },
-  date: "1976",
+export default {
   author: "Wisława Szymborska",
-  contents: {
-    original: processText(original, { type: "poetry" }),
-    translated: processText(translated, { type: "poetry" }),
+  date: "1976",
+  type: "poetry",
+  translations: {
+    original: {
+      language: "pl",
+      title: "Cebula",
+      content: original,
+    },
+    translated: {
+      language: "en",
+      title: "Onion",
+      content: translated,
+    },
   },
-};
+} as Work;
