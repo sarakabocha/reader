@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="relative mb-8 m-6" ref={menuRef}>
+        <div className="relative mb-16 m-6" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"

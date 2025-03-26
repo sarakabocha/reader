@@ -49,7 +49,7 @@ export function TranslationPane({
             ) : (
               <div className={`whitespace-pre-wrap ${getWritingType(type)}`}>
                 <span
-                  className={`rounded p-1 ${
+                  className={`rounded py-1 ${
                     hoveredIndex === index ? "bg-yellow-100" : "hover:bg-gray-50"
                   }`}
                   onMouseEnter={() => onHover(index)}
