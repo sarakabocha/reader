@@ -1,6 +1,7 @@
 export type Collection = {
   name: string;
   works: Work[];
+  volume: boolean;
 };
 
 type WorkType = "poetry" | "prose";

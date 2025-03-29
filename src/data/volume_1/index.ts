@@ -20,4 +20,5 @@ export default {
     jhk20070218,
     jhk20070930,
   ],
+  volume: true,
 } as Collection;

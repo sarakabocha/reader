@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { BookMenu } from "./components/BookMenu";
 import { Work } from "./data/collection";
 import { processText } from "./utils/textProcessor";
+import { DarkModeToggle } from "./components/DarkModeToggle";
 
 // Helper function to get all entries in order
 // const getAllEntries = () => {
@@ -18,6 +19,12 @@ function App() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedWork, setSelectedWork] = useState<Work>(Collections[0].works[0]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return false;
+  });
   const menuRef = useRef<HTMLDivElement>(null);
 
   // const allEntries = getAllEntries();
@@ -37,19 +44,29 @@ function App() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const toggleDarkMode = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("dark");
+  };
+
   return (
-    <div className="min-h-screen bg-white p-4 md:p-8 ">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8 ">
+      <DarkModeToggle isDark={isDark} onToggle={toggleDarkMode} />
       <div className="max-w-7xl mx-auto">
         <div className="relative mb-8 md:mb-16 m-4 md:m-6" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
+            className="h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800 transition-colors"
             aria-label="Select poem"
           >
-            <span className="text-gray-700">{selectedWork.translations.original.title}</span>
+            <span className="text-gray-700 dark:text-gray-300">
+              {selectedWork.translations.original.title}
+            </span>
             <ChevronDown
               size={20}
-              className={`text-gray-500 transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
+              className={`text-gray-500 dark:text-gray-400 transition-transform ${
+                isMenuOpen ? "rotate-180" : ""
+              }`}
             />
           </button>
 
@@ -68,7 +85,7 @@ function App() {
         </div>
 
         <div>
-          <h2 className="font-serif text-md md:text-xl m-4 md:m-6 text-gray-500">
+          <h2 className="font-serif text-md md:text-xl m-4 md:m-6 text-gray-500 dark:text-gray-400">
             {`${selectedWork.author} – ${selectedWork.date}`}
           </h2>
         </div>

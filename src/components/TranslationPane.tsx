@@ -38,12 +38,18 @@ export function TranslationPane({
   };
 
   return (
-    <div className="bg-white p-4 md:p-6">
-      <h1 className="text-ms md:text-md mb-4 text-gray-400">{type}</h1>
-      <h2 className={`text-md md:text-xl mb-8 text-gray-800 ${getFontClass(titleScript)}`}>
+    <div className="bg-white dark:bg-gray-900 p-4 md:p-6">
+      <h1 className="text-ms md:text-md mb-4 text-gray-400 dark:text-gray-400">{type}</h1>
+      <h2
+        className={`text-md md:text-xl mb-8 text-gray-800 dark:text-gray-200 ${getFontClass(
+          titleScript
+        )}`}
+      >
         {title}
       </h2>
-      <div className={`prose prose-sm md:prose-lg ${getFontClass(contentScript)} `}>
+      <div
+        className={`prose dark:prose-invert prose-sm md:prose-lg ${getFontClass(contentScript)} `}
+      >
         {sentences.map((sentence, index) => (
           <React.Fragment key={index}>
             {sentence.trim() === "\n" ? (
@@ -52,7 +58,9 @@ export function TranslationPane({
               <div className={`whitespace-pre-wrap ${getWritingType(type)}`}>
                 <span
                   className={`rounded py-1 ${
-                    hoveredIndex === index ? "bg-yellow-50" : "hover:bg-gray-50"
+                    hoveredIndex === index
+                      ? "bg-yellow-50 dark:bg-yellow-200/20"
+                      : "hover:bg-gray-50"
                   } transition duration-100`}
                   onMouseEnter={() => onHover(index)}
                   onMouseLeave={() => onHover(null)}
