@@ -38,9 +38,9 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white p-8">
+    <div className="min-h-screen bg-white p-4 md:p-8 ">
       <div className="max-w-7xl mx-auto">
-        <div className="relative mb-16 m-6" ref={menuRef}>
+        <div className="relative mb-8 md:mb-16 m-4 md:m-6" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors"
@@ -68,12 +68,12 @@ function App() {
         </div>
 
         <div>
-          <h2 className="font-serif text-xl m-6 text-gray-500">
+          <h2 className="font-serif text-md md:text-xl m-4 md:m-6 text-gray-500">
             {`${selectedWork.author} – ${selectedWork.date}`}
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-0 md:gap-8">
           <TranslationPane
             type="Original"
             title={selectedWork.translations.original.title}
