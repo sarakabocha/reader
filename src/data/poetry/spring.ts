@@ -29,7 +29,7 @@ glistens high above`;
 export default {
   author: "윤동주 / Yun Dong-Ju",
   date: "1948",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "ko",

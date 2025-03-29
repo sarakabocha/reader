@@ -25,7 +25,7 @@ it falls only in the chill of the winter.`;
 export default {
   author: "윤동주 / Yun Dong-Ju",
   date: "1941",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: { language: "ko", title: "눈", content: original },
     translated: { language: "en", title: "Snow", content: translated },

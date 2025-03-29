@@ -28,7 +28,7 @@ Are you drinking bitter water right now? May you experience the God who turns it
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.02.11",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

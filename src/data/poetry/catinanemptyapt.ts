@@ -88,7 +88,7 @@ export default {
   author: "Wisława Szymborska",
   name: "Cat in an Empty Apartment",
   date: "1991",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "pl",

@@ -23,7 +23,7 @@ const translated = ``;
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.23",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",
@@ -32,7 +32,7 @@ export default {
     },
     translated: {
       language: "en",
-      title: "",
+      title: "You are the salt and the light: Sermon on the Mount (4)",
       content: translated,
     },
   },

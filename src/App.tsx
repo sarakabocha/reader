@@ -48,6 +48,7 @@ function App() {
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark");
   };
+  console.log("Detected work type:", selectedWork.worktype);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8 ">
@@ -92,22 +93,24 @@ function App() {
 
         <div className="grid grid-cols-2 gap-0 md:gap-8">
           <TranslationPane
-            type="Original"
+            translationtype="Original"
             title={selectedWork.translations.original.title}
             sentences={processText(selectedWork.translations.original.content, {
-              type: selectedWork.type,
+              worktype: selectedWork.worktype,
             })}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
+            worktype={selectedWork.worktype}
           />
           <TranslationPane
-            type="Translated"
+            translationtype="Translated"
             title={selectedWork.translations.translated.title}
             sentences={processText(selectedWork.translations.translated.content, {
-              type: selectedWork.type,
+              worktype: selectedWork.worktype,
             })}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
+            worktype={selectedWork.worktype}
           />
         </div>
       </div>

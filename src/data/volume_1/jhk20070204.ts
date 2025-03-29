@@ -29,7 +29,7 @@ We must hear this as Christ’s command to us as His disciples. True life is a l
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.23",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

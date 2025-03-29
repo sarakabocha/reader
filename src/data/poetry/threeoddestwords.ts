@@ -21,7 +21,7 @@ I make something no non-being can hold.`;
 export default {
   author: "Wisława Szymborska",
   date: "1976",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "pl",

@@ -25,7 +25,7 @@ Tonight, again, the wind brushes the stars.`;
 export default {
   author: "윤동주 / Yun Dong-Ju",
   date: "1948",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "ko",

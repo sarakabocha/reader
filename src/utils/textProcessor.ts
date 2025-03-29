@@ -1,17 +1,20 @@
 import sentencize from "@stdlib/nlp/sentencize";
 
 export type TextProcessorOptions = {
-  type: "poetry" | "prose";
+  worktype: "poetry" | "prose";
 };
 
-export function processText(text: string, options: TextProcessorOptions): string[] {
-  if (options.type === "poetry") {
-    return text.split("\n").map((line) => (line.trim() === "" ? "\n" : line + "\n"));
+export function processText(text: string, options: TextProcessorOptions): string[][] {
+  if (options.worktype === "poetry") {
+    return text.split("\n\n").map((stanza) => stanza.split("\n"));
+    // return text.split("\n").map((line) => (line.trim() === "" ? [] : [line]));
+    // return text.split("\n").map((line) => (line.trim() === "" ? "\n" : line + "\n"));
   }
 
-  if (options.type === "prose") {
-    return sentencize(text);
+  if (options.worktype === "prose") {
+    return text.split(/\n\n+/).map((paragraph) => sentencize(paragraph));
+    // .join(" "));
+    // .flatMap((paragraph) => [paragraph, "\n"]);
   }
-
-  return sentencize(text);
+  return [sentencize(text)];
 }

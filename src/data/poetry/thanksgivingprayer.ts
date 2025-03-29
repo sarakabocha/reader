@@ -38,7 +38,7 @@ But why did You make me Polish?
 export default {
   author: "Andrzej Bursa",
   date: "1957",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "pl",

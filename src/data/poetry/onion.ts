@@ -75,7 +75,7 @@ onionoid perfections.`;
 export default {
   author: "Wisława Szymborska",
   date: "1976",
-  type: "poetry",
+  worktype: "poetry",
   translations: {
     original: {
       language: "pl",

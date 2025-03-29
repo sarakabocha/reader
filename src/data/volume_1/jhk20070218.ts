@@ -33,7 +33,7 @@ Christians are people of prayer. We are warriors of prayer. Those who do not pra
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.02.18",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

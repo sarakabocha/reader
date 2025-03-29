@@ -34,7 +34,7 @@ Yes, those who receive Jesus are given the title of children of God. However, th
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.21",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

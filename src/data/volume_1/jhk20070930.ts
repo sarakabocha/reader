@@ -31,7 +31,7 @@ The Lord said He would build His church upon the confession of Christ. That is w
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.09.30",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

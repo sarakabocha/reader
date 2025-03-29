@@ -31,7 +31,7 @@ For them, land was their foundation of life, their stability itself. Without lan
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.14",
-  type: "prose",
+  worktype: "prose",
   translations: {
     original: {
       language: "ko",

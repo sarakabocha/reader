@@ -33,7 +33,7 @@ export function BookMenu({ collections, selectedWork, onSelect }: BookMenuProps)
                   className={`text-gray-500 text-xs ${
                     selectedWork === work
                       ? "text-gray-400 dark:text-gray-500"
-                      : "text-gray-400 dark:text-gray-500"
+                      : "text-gray-400/80 dark:text-gray-500"
                   }`}
                 >
                   {work.translations.translated.title}

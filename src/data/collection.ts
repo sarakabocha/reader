@@ -10,7 +10,7 @@ export type Work = {
   author: string;
   date: string;
   translations: TranslationSet;
-  type: WorkType;
+  worktype: WorkType;
 };
 
 export type TranslationSet = {
