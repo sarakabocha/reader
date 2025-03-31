@@ -15,9 +15,30 @@ import { DarkModeToggle } from "./components/DarkModeToggle";
 
 const Collections = [Poetry, Volume1];
 
+// Save selected work to localStorage
+const saveSelectedWork = (work: Work) => {
+  localStorage.setItem("selectedWork", JSON.stringify(work));
+};
+
+// Load selected work from localStorage
+const loadSelectedWork = (): Work | undefined => {
+  const savedWork = localStorage.getItem("selectedWork");
+  if (savedWork) {
+    return JSON.parse(savedWork);
+  }
+  return undefined;
+};
+
 function App() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [selectedWork, setSelectedWork] = useState<Work>(Collections[0].works[0]);
+  const [selectedWork, setSelectedWork] = useState<Work>(
+    loadSelectedWork() || Collections[0].works[0]
+  );
+  const handleWorkSelection = (work: Work) => {
+    setSelectedWork(work);
+    saveSelectedWork(work); // Save the new work
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
@@ -79,6 +100,8 @@ function App() {
                 onSelect={(set) => {
                   setSelectedWork(set);
                   setIsMenuOpen(false);
+                  handleWorkSelection(set);
+                  saveSelectedWork(set);
                 }}
               />
             </div>
