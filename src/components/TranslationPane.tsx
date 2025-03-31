@@ -24,7 +24,7 @@ export function TranslationPane({
   const getFontClass = (script: "korean" | "default") => {
     switch (script) {
       case "korean":
-        return "font-noto-serif-kr leading-10";
+        return "font-noto-serif-kr md:leading-10";
       default:
         return "font-serif";
     }
@@ -49,6 +49,7 @@ export function TranslationPane({
       >
         {sentences.map((paragraph, paragraphIndex) => (
           <div key={paragraphIndex} className={`mb-6`}>
+            {worktype === "prose" && <span className="inline-block w-6" />}
             {paragraph.map((sentence) => {
               const sentenceIndex = globalSentenceIndex++;
               return worktype === "poetry" ? (

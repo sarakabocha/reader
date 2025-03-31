@@ -69,7 +69,6 @@ function App() {
     setIsDark(!isDark);
     document.documentElement.classList.toggle("dark");
   };
-  console.log("Detected work type:", selectedWork.worktype);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8 ">
