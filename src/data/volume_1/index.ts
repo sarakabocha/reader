@@ -9,7 +9,7 @@ import jhk20070211 from "./jhk20070211";
 import jhk20070218 from "./jhk20070218";
 
 export default {
-  name: "믿음위에 굳건히",
+  name: "믿음위에 굳건히 (Firmly on faith)",
   works: [
     jhk20070107,
     jhk20070114,
