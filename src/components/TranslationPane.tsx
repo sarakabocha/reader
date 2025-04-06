@@ -24,7 +24,7 @@ export function TranslationPane({
   const getFontClass = (script: "korean" | "default") => {
     switch (script) {
       case "korean":
-        return "font-noto-serif-kr md:leading-10";
+        return "font-noto-serif-kr";
       default:
         return "font-serif";
     }
@@ -34,7 +34,7 @@ export function TranslationPane({
 
   return (
     <div className="bg-white dark:bg-gray-900 p-4 md:p-6">
-      <h1 className="text-ms md:text-md mb-4 text-gray-400 dark:text-gray-400">
+      <h1 className="text-md md:text-md mb-4 text-gray-400 dark:text-gray-400">
         {translationtype}
       </h1>
       <h2

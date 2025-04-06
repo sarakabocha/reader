@@ -108,9 +108,12 @@ function App() {
         </div>
 
         <div>
-          <h2 className="font-serif text-md md:text-xl m-4 md:m-6 text-gray-500 dark:text-gray-400">
-            {`${selectedWork.author} – ${selectedWork.date}`}
+          <h2 className="text-md md:text-xl mx-4 my-2 md:mx-6 text-gray-500 dark:text-gray-400">
+            {`${selectedWork.author}`}
           </h2>
+          <div className="text-md mx-4 md:mx-6 my-2 text-gray-400 dark:text-gray-400">
+            {`${selectedWork.date}`}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-0 md:gap-8">
