@@ -11,6 +11,7 @@ export type Work = {
   date: string;
   translations: TranslationSet;
   worktype: WorkType;
+  lastModified?: string;
 };
 
 export type TranslationSet = {

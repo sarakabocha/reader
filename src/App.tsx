@@ -12,7 +12,6 @@ import { DarkModeToggle } from "./components/DarkModeToggle";
 // const getAllEntries = () => {
 //   return Object.values(books).flatMap(book => book.entries);
 // };
-
 const Collections = [Poetry, Volume1];
 
 // Save selected work to localStorage
@@ -106,7 +105,6 @@ function App() {
             </div>
           )}
         </div>
-
         <div>
           <h2 className="text-md md:text-xl mx-4 my-2 md:mx-6 text-gray-500 dark:text-gray-400">
             {`${selectedWork.author}`}
@@ -115,7 +113,6 @@ function App() {
             {`${selectedWork.date}`}
           </div>
         </div>
-
         <div className="grid grid-cols-2 gap-0 md:gap-8">
           <TranslationPane
             translationtype="Original"
@@ -138,6 +135,7 @@ function App() {
             worktype={selectedWork.worktype}
           />
         </div>
+        <div className="text-center text-md mx-4 md:mx-6 mt-12 text-gray-400 dark:text-gray-400">{`Last updated ${selectedWork.lastModified}`}</div>
       </div>
     </div>
   );

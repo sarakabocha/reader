@@ -32,6 +32,7 @@ export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.14",
   worktype: "prose",
+  lastModified: document.lastModified,
   translations: {
     original: {
       language: "ko",

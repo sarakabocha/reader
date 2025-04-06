@@ -18,12 +18,29 @@ const original = `예수님은 산상수훈에서 제자들에게 팔복을 말�
 
 이 비유들은 예수님이 하신 16절의 결론을 위한 것들 입니다. 너희의 착한 행실을 보고, 사람들이 하늘의 아버지께 영광을 돌리게 하라! 내가 악한 행실을 보이면, 사람들은 하나님을 존귀히 여기지 않고, 내가 선한 행위를 하면 하나님을 칭송합니다. 내가 하나님을 영화롭게도 하고, 하나님을 영광을 가리기도 합니다. 내 소금이 맛을 잃고, 내 빛이 꺼지면 많은 사람을 실족하게 하기도 한다는 것을 새삼 깨닫게 하십니다. 여러분의 행함으로 하나님의 이름이 높임을 받게 하시기 바랍니다.`;
 
-const translated = ``;
+const translated = `In the Sermon on the Mount, after Jesus spoke about the Beatitudes to His disciples, He made two declarations—two commands: "You are the salt of the earth. You are the light of the world" (Matthew 5:13-16). These are simple and clear statements. He did not say, "You will become salt" or "You will become light" in the future tense. Rather, He declared that they must be salt and light in the world. This is a characteristic of Jesus’ direct way of speaking—similar to God's self-declaring statements. In Exodus 3, when God first revealed Himself to Moses, Moses asked, "What should I call You?" God answered, "I AM WHO I AM," and this became His name—Yahweh (I am Yahweh). Likewise, Jesus made declarative statements such as "I am the way, the truth, and the life." He often used expressions beginning with "I am." Now, He applies the same expression to His disciples. The same applies to us as well. There is no avoiding it.
+
+Now, let’s examine why Jesus called them salt and light.
+
+First, Jesus said, "You are the salt of the earth." What is salt? It gives a salty taste! But more than that, salt is fundamental to flavor. No matter how many delicious dishes are prepared, if they lack salt, they become tasteless. That is why various seasonings exist. However, no matter how many good seasonings are added, if salt is missing, the dish has no flavor. I, who am not skilled at cooking, have sometimes tried to make something, only to find it lacking in taste. When I asked my wife why, her answer was, "Add a little more salt." Ah, I see!
+
+Salt also prevents decay. It stops things from rotting. Today, we live in a civilization where every home has a refrigerator to store food, but in biblical times, salt was the substitute for refrigeration. Salt played the role of preserving food.
+
+Although modern medicine advises reducing salt intake due to health concerns, salt is still an essential substance for life. Since the human body is largely composed of water, drinking water is essential, and salt helps maintain the body's water balance. The hydrochloric acid in the stomach is primarily made of salt, and salt also aids metabolism by removing waste from the blood. It regulates the body's osmotic pressure and helps maintain overall health balance. Such is the importance of salt.
+
+However, Jesus highlights a crucial point—what happens if salt loses its saltiness? In reality, salt can lose its flavor if left exposed for too long or stored improperly. The Jews of Jesus’ time understood this well. Most of the salt they used came from the Dead Sea, and over time, it lost its saltiness. While salt is meant to preserve and season, once it loses its function, it becomes useless. It is simply thrown away and trampled underfoot like a worthless rock. This was the metaphor Jesus used. Christians must be like salt in the world.
+
+Jesus also said, "You are the light of the world." We must be a light that illuminates the world. Light drives away darkness. When God created the world, the first thing He made was light. He separated light from darkness and saw that it was good (Genesis 1). We cannot be the sun, but we can be like a lighthouse or a lamp that reflects light. No one places a lamp under a table; instead, they put it on top so it can light up the whole room. That is only natural. No one turns on a desk lamp and then places it under the desk to study. Just as it is natural to place a light where it can illuminate, Jesus tells us that we must be lights in the world.
+
+Becoming a disciple is not just about diligently studying the Bible, reading it multiple times, or winning first place in a Bible quiz. That alone does not make one a disciple. In reality, discipleship is difficult. A disciple becomes one by living according to Jesus' teachings. What kind of disciple ignores the words of their teacher?
+
+These metaphors lead to Jesus’ conclusion in verse 16: "Let your light shine before others, that they may see your good deeds and glorify your Father in heaven." If I act wickedly, people will not honor God. But if I live righteously, people will praise Him. I have the power to glorify God or to dishonor Him. If my salt loses its flavor or my light goes out, I may cause others to stumble. This truth reminds us of our responsibility. May your actions bring honor to God’s name.`;
 
 export default {
   author: "김종호 / Kim Jong-Ho",
   date: "2007.01.23",
   worktype: "prose",
+  lastModified: document.lastModified,
   translations: {
     original: {
       language: "ko",
