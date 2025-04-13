@@ -4,8 +4,7 @@ import Volume1 from "./data/volume_1";
 import { TranslationPane } from "./components/TranslationPane";
 import { ChevronDown } from "lucide-react";
 import { BookMenu } from "./components/BookMenu";
-import { Work } from "./data/collection";
-import { processText } from "./utils/textProcessor";
+import { Process, Work } from "./data/collection";
 import { DarkModeToggle } from "./components/DarkModeToggle";
 
 // Helper function to get all entries in order
@@ -69,6 +68,15 @@ function App() {
     document.documentElement.classList.toggle("dark");
   };
 
+  const processedOriginal = Process(
+    selectedWork.translations.original.content,
+    selectedWork.worktype
+  );
+  const processedTranslation = Process(
+    selectedWork.translations.translated.content,
+    selectedWork.worktype
+  );
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8 ">
       <DarkModeToggle isDark={isDark} onToggle={toggleDarkMode} />
@@ -117,9 +125,7 @@ function App() {
           <TranslationPane
             translationtype="Original"
             title={selectedWork.translations.original.title}
-            sentences={processText(selectedWork.translations.original.content, {
-              worktype: selectedWork.worktype,
-            })}
+            sentences={processedOriginal}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
             worktype={selectedWork.worktype}
@@ -127,9 +133,7 @@ function App() {
           <TranslationPane
             translationtype="Translated"
             title={selectedWork.translations.translated.title}
-            sentences={processText(selectedWork.translations.translated.content, {
-              worktype: selectedWork.worktype,
-            })}
+            sentences={processedTranslation}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
             worktype={selectedWork.worktype}
