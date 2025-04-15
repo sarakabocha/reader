@@ -34,16 +34,8 @@ export function TranslationPane({
 
   return (
     <div className="bg-white dark:bg-gray-900 p-4 md:p-6">
-      <h1 className="text-md md:text-md mb-4 text-gray-400 dark:text-gray-400">
-        {translationtype}
-      </h1>
-      <h2
-        className={`text-md md:text-xl mb-8 text-gray-800 dark:text-gray-200 ${getFontClass(
-          titleScript
-        )}`}
-      >
-        {title}
-      </h2>
+      <h1 className="text-small mb-4 text-muted">{translationtype}</h1>
+      <h2 className={`text-large mb-8 text-primary ${getFontClass(titleScript)}`}>{title}</h2>
       <div
         className={`prose dark:prose-invert prose-sm md:prose-lg ${getFontClass(contentScript)} `}
       >
@@ -57,10 +49,8 @@ export function TranslationPane({
                 <div key={sentenceIndex}>
                   <span
                     className={`rounded py-1 whitespace-pre-wrap inline ${
-                      hoveredIndex === sentenceIndex
-                        ? "bg-yellow-50 dark:bg-yellow-200/20"
-                        : "hover:bg-gray-50"
-                    } transition duration-100`}
+                      hoveredIndex === sentenceIndex ? "highlighted-text" : "hovered-text"
+                    } transition duration-200`}
                     onMouseEnter={() => onHover(sentenceIndex)}
                     onMouseLeave={() => onHover(null)}
                   >
@@ -72,10 +62,8 @@ export function TranslationPane({
                 <p key={sentenceIndex} className="inline">
                   <span
                     className={`rounded py-1 inline ${
-                      hoveredIndex === sentenceIndex
-                        ? "bg-yellow-50 dark:bg-yellow-200/20"
-                        : "hover:bg-gray-50"
-                    } transition duration-100`}
+                      hoveredIndex === sentenceIndex ? "highlighted-text " : "hovered-text"
+                    } transition duration-200`}
                     onMouseEnter={() => onHover(sentenceIndex)}
                     onMouseLeave={() => onHover(null)}
                   >

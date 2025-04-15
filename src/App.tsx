@@ -2,15 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Poetry from "./data/poetry";
 import Volume1 from "./data/volume_1";
 import { TranslationPane } from "./components/TranslationPane";
-import { ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { BookMenu } from "./components/BookMenu";
 import { Process, Work } from "./data/collection";
 import { DarkModeToggle } from "./components/DarkModeToggle";
+import "./styles/buttons.css";
+import "./styles/typography.css";
 
-// Helper function to get all entries in order
-// const getAllEntries = () => {
-//   return Object.values(books).flatMap(book => book.entries);
-// };
 const Collections = [Poetry, Volume1];
 
 // Save selected work to localStorage
@@ -32,6 +30,17 @@ function App() {
   const [selectedWork, setSelectedWork] = useState<Work>(
     loadSelectedWork() || Collections[0].works[0]
   );
+
+  // Calculate all works once
+  const allWorks = Collections.flatMap((collection) => collection.works);
+
+  // Calculate current index and navigation works
+  const currentIndex = allWorks.findIndex(
+    (work) => work.translations.original.title === selectedWork.translations.original.title
+  );
+  const previousWork = currentIndex > 0 ? allWorks[currentIndex - 1] : null;
+  const nextWork = currentIndex < allWorks.length - 1 ? allWorks[currentIndex + 1] : null;
+
   const handleWorkSelection = (work: Work) => {
     setSelectedWork(work);
     saveSelectedWork(work); // Save the new work
@@ -45,11 +54,6 @@ function App() {
     return false;
   });
   const menuRef = useRef<HTMLDivElement>(null);
-
-  // const allEntries = getAllEntries();
-  // const currentIndex = allEntries.indexOf(selectedSet);
-  // const previousEntry = currentIndex > 0 ? allEntries[currentIndex - 1] : null;
-  // const nextEntry = currentIndex < allEntries.length - 1 ? allEntries[currentIndex + 1] : null;
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -78,23 +82,21 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8 ">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8">
       <DarkModeToggle isDark={isDark} onToggle={toggleDarkMode} />
       <div className="max-w-7xl mx-auto">
         <div className="relative mb-8 md:mb-16 m-4 md:m-6" ref={menuRef}>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Select poem"
+            className="btn"
+            aria-label="Select a work"
           >
-            <span className="text-gray-700 dark:text-gray-300">
+            <span className="text-primary text-medium">
               {selectedWork.translations.original.title}
             </span>
             <ChevronDown
               size={20}
-              className={`text-gray-500 dark:text-gray-400 transition-transform ${
-                isMenuOpen ? "rotate-180" : ""
-              }`}
+              className={`text-secondary transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
             />
           </button>
 
@@ -114,12 +116,8 @@ function App() {
           )}
         </div>
         <div>
-          <h2 className="text-md md:text-xl mx-4 my-2 md:mx-6 text-gray-500 dark:text-gray-400">
-            {`${selectedWork.author}`}
-          </h2>
-          <div className="text-md mx-4 md:mx-6 my-2 text-gray-400 dark:text-gray-400">
-            {`${selectedWork.date}`}
-          </div>
+          <h2 className="text-medium text-secondary mx-4 my-2 md:mx-6">{`${selectedWork.author}`}</h2>
+          <div className="text-small text-muted mx-4 md:mx-6 my-2">{`${selectedWork.date}`}</div>
         </div>
         <div className="grid grid-cols-2 gap-0 md:gap-8">
           <TranslationPane
@@ -139,7 +137,30 @@ function App() {
             worktype={selectedWork.worktype}
           />
         </div>
-        <div className="text-center text-md mx-4 md:mx-6 mt-12 text-gray-400 dark:text-gray-400">{`Last updated ${selectedWork.lastModified}`}</div>
+
+        <div className="flex justify-between items-center">
+          <button
+            className={`btn-minimal ${!previousWork && "opacity-0"}`}
+            onClick={() => previousWork && handleWorkSelection(previousWork)}
+          >
+            <ArrowLeft size={20} className="btn-text" />
+            <span className="text-primary text-medium">
+              {previousWork?.translations.original.title}
+            </span>
+          </button>
+
+          <div className="text-small text-muted">{`Last updated ${selectedWork.lastModified}`}</div>
+
+          <button
+            className={`btn-minimal ${!nextWork && "opacity-0"}`}
+            onClick={() => nextWork && handleWorkSelection(nextWork)}
+          >
+            <span className="text-primary text-medium">
+              {nextWork?.translations.original.title}
+            </span>
+            <ArrowRight size={20} className="btn-text" />
+          </button>
+        </div>
       </div>
     </div>
   );
