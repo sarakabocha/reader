@@ -1,0 +1,37 @@
+/* Text colors */
+.text-primary {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.text-secondary {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+.text-muted {
+  @apply text-gray-400 dark:text-gray-500;
+}
+
+/* Text sizes */
+.text-small {
+  @apply text-sm md:text-base;
+}
+
+.text-medium {
+  @apply text-base md:text-lg;
+}
+
+.text-large {
+  @apply text-lg md:text-xl;
+}
+
+.text-xlarge {
+  @apply text-xl md:text-2xl;
+}
+
+.highlighted-text {
+  @apply bg-yellow-100 dark:bg-yellow-200/20;
+}
+
+.hovered-text {
+  @apply hover:bg-gray-50;
+}

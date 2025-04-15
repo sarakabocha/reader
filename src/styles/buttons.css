@@ -1,0 +1,11 @@
+.btn {
+  @apply h-10 px-4 flex items-center gap-2 rounded-lg border border-gray-200 hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-800 transition-colors;
+}
+
+.btn-minimal {
+  @apply h-10 px-4 flex items-center gap-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors;
+}
+
+.btn-text {
+  @apply text-gray-700 dark:text-gray-300;
+}
