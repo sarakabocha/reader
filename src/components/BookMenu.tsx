@@ -1,4 +1,5 @@
 import { Collection, Work } from "../data/collection";
+import "../styles/buttons.css";
 
 type BookMenuProps = {
   collections: Collection[];
@@ -26,7 +27,11 @@ export function BookMenu({ collections, selectedWork, onSelect }: BookMenuProps)
                   selectedWork === work
                     ? "bg-gray-800 dark:bg-white text-white dark:text-gray-900"
                     : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-700"
-                }`}
+                } disabled:btn-disabled`}
+                disabled={
+                  work.translations.original.content.length === 1 &&
+                  work.translations.original.content[0].length === 0
+                }
               >
                 {work.translations.original.title}
                 <span

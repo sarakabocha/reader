@@ -47,9 +47,23 @@ function App() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== "undefined") {
-      return document.documentElement.classList.contains("dark");
+      const savedTheme = localStorage.getItem("theme");
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const htmlElement = document.documentElement;
+
+      // Use saved preference if it exists, otherwise use system preference
+      const shouldBeDark = savedTheme === "dark" || (savedTheme === null && systemPrefersDark);
+
+      if (shouldBeDark) {
+        htmlElement.classList.add("dark");
+      } else {
+        htmlElement.classList.remove("dark");
+      }
+
+      return shouldBeDark;
     }
     return false;
   });

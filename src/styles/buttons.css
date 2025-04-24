@@ -9,3 +9,7 @@
 .btn-text {
   @apply text-gray-700 dark:text-gray-300;
 }
+
+.btn-disabled {
+  @apply opacity-50 text-gray-200 cursor-not-allowed hover:bg-transparent dark:hover:bg-transparent;
+}
