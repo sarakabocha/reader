@@ -96,7 +96,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-16">
       <DarkModeToggle isDark={isDark} onToggle={toggleDarkMode} />
       <div className="max-w-7xl mx-auto">
         <div className="relative mb-8 md:mb-16 m-4 md:m-6" ref={menuRef}>
