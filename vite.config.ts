@@ -3,15 +3,12 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "tailwindcss";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: "/reader/",
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/reader/" : "/",
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ["lucide-react"],
-  },
   css: {
     postcss: {
       plugins: [tailwindcss()],
     },
   },
-});
+}));
