@@ -2,10 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import Poetry from "./data/poetry";
 import Volume1 from "./data/volume_1";
 import { TranslationPane } from "./components/TranslationPane";
+import { VerticalTranslationPane } from "./components/VerticalTranslationPane";
 import { ArrowLeft, ArrowRight, ChevronDown } from "lucide-react";
 import { BookMenu } from "./components/BookMenu";
 import { Process, Work } from "./data/collection";
 import { DarkModeToggle } from "./components/DarkModeToggle";
+import { LayoutToggle } from "./components/LayoutToggle";
 import "./styles/buttons.css";
 import "./styles/typography.css";
 
@@ -67,6 +69,15 @@ function App() {
     }
     return false;
   });
+
+  const [isVerticalLayout, setIsVerticalLayout] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedLayout = localStorage.getItem("layout");
+      return savedLayout === "vertical";
+    }
+    return false;
+  });
+
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Close menu when clicking outside
@@ -86,6 +97,12 @@ function App() {
     document.documentElement.classList.toggle("dark");
   };
 
+  const toggleLayout = () => {
+    const newLayout = !isVerticalLayout;
+    setIsVerticalLayout(newLayout);
+    localStorage.setItem("layout", newLayout ? "vertical" : "side-by-side");
+  };
+
   const processedOriginal = Process(
     selectedWork.translations.original.content,
     selectedWork.worktype
@@ -97,6 +114,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-4 md:p-16">
+      <LayoutToggle isVertical={isVerticalLayout} onToggle={toggleLayout}  />
       <DarkModeToggle isDark={isDark} onToggle={toggleDarkMode} />
       <div className="max-w-7xl mx-auto">
         <div className="relative mb-8 md:mb-16 m-4 md:m-6" ref={menuRef}>
@@ -133,24 +151,35 @@ function App() {
           <h2 className="text-medium text-secondary mx-4 my-2 md:mx-6">{`${selectedWork.author}`}</h2>
           <div className="text-small text-muted mx-4 md:mx-6 my-2">{`${selectedWork.date}`}</div>
         </div>
-        <div className="grid grid-cols-2 gap-0 md:gap-8">
-          <TranslationPane
-            translationtype="Original"
-            title={selectedWork.translations.original.title}
-            sentences={processedOriginal}
+        {isVerticalLayout ? (
+          <VerticalTranslationPane
+            originalTitle={selectedWork.translations.original.title}
+            translatedTitle={selectedWork.translations.translated.title}
+            originalSentences={processedOriginal}
+            translatedSentences={processedTranslation}
             hoveredIndex={hoveredIndex}
             onHover={setHoveredIndex}
-            worktype={selectedWork.worktype}
           />
-          <TranslationPane
-            translationtype="Translated"
-            title={selectedWork.translations.translated.title}
-            sentences={processedTranslation}
-            hoveredIndex={hoveredIndex}
-            onHover={setHoveredIndex}
-            worktype={selectedWork.worktype}
-          />
-        </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-0 md:gap-8">
+            <TranslationPane
+              translationtype="Original"
+              title={selectedWork.translations.original.title}
+              sentences={processedOriginal}
+              hoveredIndex={hoveredIndex}
+              onHover={setHoveredIndex}
+              worktype={selectedWork.worktype}
+            />
+            <TranslationPane
+              translationtype="Translated"
+              title={selectedWork.translations.translated.title}
+              sentences={processedTranslation}
+              hoveredIndex={hoveredIndex}
+              onHover={setHoveredIndex}
+              worktype={selectedWork.worktype}
+            />
+          </div>
+        )}
 
         <div className="flex justify-between items-center">
           <button
