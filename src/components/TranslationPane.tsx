@@ -37,7 +37,7 @@ export function TranslationPane({
       <h1 className="text-small mb-4 text-muted">{translationtype}</h1>
       <h2 className={`text-large mb-8 text-primary ${getFontClass(titleScript)}`}>{title}</h2>
       <div
-        className={`prose dark:prose-invert prose-sm md:prose-lg ${getFontClass(contentScript)} `}
+        className={`prose dark:prose-invert prose-sm md:prose-lg ${getFontClass(contentScript)} !leading-[1.9]`}
       >
         {sentences.map((paragraph, paragraphIndex) => (
           <div key={paragraphIndex} className={`mb-6`}>
@@ -48,26 +48,26 @@ export function TranslationPane({
                 // Poetry: Each sentence gets its own div to preserve line breaks
                 <div key={sentenceIndex}>
                   <span
-                    className={`rounded py-1 whitespace-pre-wrap inline ${
+                    className={`rounded-sm px-0.5 -mx-0.5 whitespace-pre-wrap inline leading-relaxed ${
                       hoveredIndex === sentenceIndex ? "highlighted-text" : "hovered-text"
-                    } transition duration-200`}
+                    } transition-colors duration-150`}
                     onMouseEnter={() => onHover(sentenceIndex)}
                     onMouseLeave={() => onHover(null)}
                   >
-                    {sentence}
+                    {sentence.trim()}
                   </span>
                 </div>
               ) : (
                 // Prose: Wrap sentences in a single paragraph to maintain spacing
                 <p key={sentenceIndex} className="inline">
                   <span
-                    className={`rounded py-1 inline ${
-                      hoveredIndex === sentenceIndex ? "highlighted-text " : "hovered-text"
-                    } transition duration-200`}
+                    className={`rounded-sm px-0.5 -mx-0.5 inline leading-relaxed ${
+                      hoveredIndex === sentenceIndex ? "highlighted-text" : "hovered-text"
+                    } transition-colors duration-150`}
                     onMouseEnter={() => onHover(sentenceIndex)}
                     onMouseLeave={() => onHover(null)}
                   >
-                    {sentence}
+                    {sentence.trim()}
                   </span>{" "}
                 </p>
               );

@@ -9,7 +9,7 @@ type BookMenuProps = {
 
 export function BookMenu({ collections, selectedWork, onSelect }: BookMenuProps) {
   return (
-    <div className="size:full md:w-[45vw] lg: bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-[calc(100vh-120px)] overflow-y-auto">
+    <div className="w-full md:w-[45vw] lg:w-[35vw] bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg max-h-[87vh] md:max-h-[80vh] overflow-y-auto scrollbar-styled">
       {collections.map((collection) => (
         <div key={collection.name} className="border-b last:border-b-0 dark:border-gray-700">
           <div className="px-4 py-3 flex flex-row gap-2 items-center">

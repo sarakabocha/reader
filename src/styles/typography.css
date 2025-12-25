@@ -29,9 +29,13 @@
 }
 
 .highlighted-text {
-  @apply bg-yellow-100 dark:bg-yellow-200/20;
+  @apply bg-amber-200/60 dark:bg-yellow-400/25;
+  box-decoration-break: clone;
+  
 }
 
 .hovered-text {
-  @apply hover:bg-gray-50;
+  @apply hover:bg-gray-100/60 dark:hover:bg-gray-700/40;
+  box-decoration-break: clone;
+  
 }
